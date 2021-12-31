@@ -12,6 +12,7 @@ public class PasswordNetworkManager : MonoBehaviour
 
     [SerializeField] private TMP_InputField passwordInputField;
     [SerializeField] private GameObject passwordEntryUI;
+    [SerializeField] private GameObject teamPickerUI;
     [SerializeField] private GameObject leaveButton;
 
     private void Start()

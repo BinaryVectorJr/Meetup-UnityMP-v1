@@ -5,8 +5,13 @@ using Unity.Netcode;
 
 public class PlayerMovement : NetworkBehaviour
 {
-    [SerializeField] public Animator playerAnimControl;
-    [SerializeField] public GameObject testParticles;
+    #region Player Related
+    [SerializeField] private Animator playerAnimControl;
+    [SerializeField] private Renderer playerTeamColorRenderer;
+    [SerializeField] private Color[] teamColors;
+    #endregion
+
+    [SerializeField] private GameObject testParticles;
 
     private void Update()
     {

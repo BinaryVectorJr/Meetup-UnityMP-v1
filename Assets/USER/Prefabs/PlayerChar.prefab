@@ -2552,7 +2552,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9e80843008872243977f0d67b97e3e3, type: 2}
+  - {fileID: 2100000, guid: 92eea08ebd84ff14e9b7e337f2bfa763, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3177,6 +3177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimControl: {fileID: 2726543649191200032}
+  playerTeamColorRenderer: {fileID: 6895306723608142102}
+  teamColors: []
   testParticles: {fileID: 4009163027967634494, guid: 8695033e20515fe4cb44625436735cfa, type: 3}
 --- !u!1 &9041502940632355750
 GameObject:

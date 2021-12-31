@@ -8,6 +8,11 @@ public class UserGameManager : MonoBehaviour
 {
     [SerializeField] public List<Transform> spawnTransforms = new List<Transform>();
     [SerializeField] public GameObject mainCam;
+
+    public void SelectTeam(int teamIndex)
+    {
+
+    }
 }
 
 #region Old Notes (Manual Connection UI)
