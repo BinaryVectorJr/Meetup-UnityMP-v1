@@ -7,6 +7,7 @@ using System;
 public class UserGameManager : MonoBehaviour
 {
     [SerializeField] public List<Transform> spawnTransforms = new List<Transform>();
+    [SerializeField] public GameObject mainCam;
 }
 
 #region Old Notes (Manual Connection UI)

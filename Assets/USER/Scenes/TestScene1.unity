@@ -170,6 +170,7 @@ MonoBehaviour:
   spawnTransforms:
   - {fileID: 950264931}
   - {fileID: 426270137}
+  mainCam: {fileID: 963194225}
 --- !u!1 &70389448
 GameObject:
   m_ObjectHideFlags: 0

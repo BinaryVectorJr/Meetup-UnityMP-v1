@@ -36,6 +36,8 @@ public class PasswordNetworkManager : MonoBehaviour
         
         //Cannot add extra parameters to StartHost as there are no overloads, however the default callback seems to work.
         NetworkManager.Singleton.StartHost();
+
+        //gameManagerScript.mainCam.SetActive(false);
     }
 
     public void Client()
@@ -59,6 +61,7 @@ public class PasswordNetworkManager : MonoBehaviour
 
         passwordEntryUI.SetActive(true);
         leaveButton.SetActive(false);
+        //gameManagerScript.mainCam.SetActive(true);
     }
 
     //OnClienConnected does not get called for the host when they themselves connect, so we do it manually (might be fixed later)
@@ -86,6 +89,7 @@ public class PasswordNetworkManager : MonoBehaviour
         {
             passwordEntryUI.SetActive(true);
             leaveButton.SetActive(false);
+            //gameManagerScript.mainCam.SetActive(true);
         }
     }
 
