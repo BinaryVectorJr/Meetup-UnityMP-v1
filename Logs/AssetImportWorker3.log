@@ -317,3 +317,62 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1139072.973427 seconds.
+  path: Assets/USER/Prefabs/Models/Leo_Idle.fbm/Ch31_1001_Glossiness.png
+  artifactKey: Guid(fe561d1da1ebc374f8613391fe450006) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/USER/Prefabs/Models/Leo_Idle.fbm/Ch31_1001_Glossiness.png using Guid(fe561d1da1ebc374f8613391fe450006) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.139327 seconds  code(4) message(Build asset version error: assets/user/prefabs/models/leo_idle.fbm/ch31_1001_glossiness.png in SourceAssetDB has modification time of '2021-12-31T01:39:45.882214Z' while content on disk has modification time of '2021-12-31T01:39:48.7370457Z')
+  ERROR: Build asset version error: assets/user/prefabs/models/leo_idle.fbm/ch31_1001_glossiness.png in SourceAssetDB has modification time of '2021-12-31T01:39:45.882214Z' while content on disk has modification time of '2021-12-31T01:39:48.7370457Z'
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/USER/Prefabs/Models/Leo_Idle.fbm/Ch31_1001_Normal.png
+  artifactKey: Guid(fb220992f79b4cc4cabbf6eabc176476) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/USER/Prefabs/Models/Leo_Idle.fbm/Ch31_1001_Normal.png using Guid(fb220992f79b4cc4cabbf6eabc176476) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67a41b2c2ba29b8753afba87b7b4fd04') in 0.063634 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.562486 seconds.
+  path: Assets/USER/Prefabs/Models/Materials/Ch31_1002_Diffuse.mat
+  artifactKey: Guid(4690c6bcdbec8914ba28d63017bcaf81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/USER/Prefabs/Models/Materials/Ch31_1002_Diffuse.mat using Guid(4690c6bcdbec8914ba28d63017bcaf81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33f8fa119f03ef7079e7c9598e4d1112') in 0.414408 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 66.562334 seconds.
+  path: Assets/USER/Prefabs/Models/Ch31_1001_Diffuse.png
+  artifactKey: Guid(539ca6b8fdf8b4d44b73a2d403f0952f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/USER/Prefabs/Models/Ch31_1001_Diffuse.png using Guid(539ca6b8fdf8b4d44b73a2d403f0952f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77d3ae795a6ca43e4fe5a10837e2445c') in 0.037006 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/USER/Prefabs/Models/Ch31_1001_Specular.png
+  artifactKey: Guid(a7746a5f9210e9845abea0c05f39784f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/USER/Prefabs/Models/Ch31_1001_Specular.png using Guid(a7746a5f9210e9845abea0c05f39784f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80ccb7b584587d6e24122cbc016ab27a') in 0.038016 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/USER/Prefabs/Models/Ch31_1001_Normal.png
+  artifactKey: Guid(aa2d092d5d210da4a8fe6503a8d24a54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/USER/Prefabs/Models/Ch31_1001_Normal.png using Guid(aa2d092d5d210da4a8fe6503a8d24a54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9283181783f6ddbdc6886a3ff902d703') in 0.040212 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000735 seconds.
+  path: Assets/USER/Prefabs/Models/Ch31_1001_Glossiness.png
+  artifactKey: Guid(3a4b67ceee6d0c64c87b3f269bda2f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/USER/Prefabs/Models/Ch31_1001_Glossiness.png using Guid(3a4b67ceee6d0c64c87b3f269bda2f68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a383ddd571fada8ef6e493b6e672bf96') in 0.037652 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/USER/Prefabs/Models/Ch31_1002_Diffuse.png
+  artifactKey: Guid(b27d8538bad179142a7408262f655b1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/USER/Prefabs/Models/Ch31_1002_Diffuse.png using Guid(b27d8538bad179142a7408262f655b1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a99d090a4096f43675d925620fa33abc') in 0.033172 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.771479 seconds.
+  path: Assets/USER/Prefabs/Models/Leo_Idle.fbx
+  artifactKey: Guid(68e7df463178c3b4abb6f246842c16d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/USER/Prefabs/Models/Leo_Idle.fbx using Guid(68e7df463178c3b4abb6f246842c16d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7e98b477f5c7903aa2cb975ae27f862') in 0.578187 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
