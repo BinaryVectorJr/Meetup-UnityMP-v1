@@ -33,9 +33,9 @@ public class PasswordNetworkManager : MonoBehaviour
     public void Host()
     {
         NetworkManager.Singleton.ConnectionApprovalCallback += ApprovalCheck;
+        
+        //Cannot add extra parameters to StartHost as there are no overloads, however the default callback seems to work.
         NetworkManager.Singleton.StartHost();
-
-
     }
 
     public void Client()
@@ -108,10 +108,10 @@ public class PasswordNetworkManager : MonoBehaviour
                 currSpawnRot = gameManagerScript.spawnTransforms[1].rotation;
                 break;
 
-            //TODO: If player 2 leaves and rejoins, they become player 3 and then the code breaks. Fix it
+            //TODO: If player 2 leaves and rejoins, they become player 3 and then the code breaks. Fix it <-- Not a problem anymore so I think it has been fixed.
         }
 
         //Spawn players in if they have a correct connection
-        userCallback(true, null, approveConn, null, null);
+        userCallback(true, null, approveConn, currSpawnPos, currSpawnRot);
     }
 }
