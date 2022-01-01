@@ -19,6 +19,16 @@ public class UserGameManager : NetworkBehaviour
     {
         tempInd = userTeamIndex;
 
+        if(!NetworkManager.Singleton.IsHost)
+        {
+            if(!NetworkManager.Singleton.LocalClient.PlayerObject.TryGetComponent<PlayerMovement>(out PlayerMovement clientPlayerMovement))
+            {
+                return;
+            }
+
+            clientPlayerMovement.SetTeamServerRpc((byte)userTeamIndex);
+        }
+
         //Get local client's ID
         ulong localID = NetworkManager.Singleton.LocalClientId;
 
