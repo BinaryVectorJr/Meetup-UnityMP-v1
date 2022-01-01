@@ -61,6 +61,7 @@ public class PasswordNetworkManager : MonoBehaviour
         }
 
         passwordEntryUI.SetActive(true);
+        teamPickerUI.SetActive(false);
         leaveButton.SetActive(false);
         //gameManagerScript.mainCam.SetActive(true);
     }
@@ -80,6 +81,7 @@ public class PasswordNetworkManager : MonoBehaviour
         if(userClientID == NetworkManager.Singleton.LocalClientId)
         {
             passwordEntryUI.SetActive(false);
+            teamPickerUI.SetActive(true);
             leaveButton.SetActive(true);
         }
     }
@@ -89,6 +91,7 @@ public class PasswordNetworkManager : MonoBehaviour
         if (userClientID == NetworkManager.Singleton.LocalClientId)
         {
             passwordEntryUI.SetActive(true);
+            teamPickerUI.SetActive(false);
             leaveButton.SetActive(false);
             //gameManagerScript.mainCam.SetActive(true);
         }
@@ -100,7 +103,7 @@ public class PasswordNetworkManager : MonoBehaviour
         bool approveConn = hostPassword == passwordInputField.text;
 
         Vector3 currSpawnPos = Vector3.zero;
-        Quaternion currSpawnRot = Quaternion.identity;
+        Quaternion currSpawnRot = Quaternion.Euler(0f, 180f, 0f);       //So that the initial character faces the camera
 
         switch(NetworkManager.Singleton.ConnectedClients.Count)
         {
