@@ -170,8 +170,9 @@ MonoBehaviour:
   spawnTransforms:
   - {fileID: 950264931}
   - {fileID: 426270137}
+  tempTeamIndex: 0
+  spawnablePrefab: {fileID: 8606255483682109461, guid: e86005c575376e84bb803a709990c506, type: 3}
   mainCam: {fileID: 963194225}
-  tempInd: 0
 --- !u!1 &70389448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,6 +1981,11 @@ MonoBehaviour:
     NetworkPrefabs:
     - Override: 0
       Prefab: {fileID: 8682198430198400480, guid: 8b47b45f3d6f89b43938025d6d0d164f, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 8606255483682109460, guid: e86005c575376e84bb803a709990c506, type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}

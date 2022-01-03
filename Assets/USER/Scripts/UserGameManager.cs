@@ -9,15 +9,12 @@ public class UserGameManager : NetworkBehaviour
     //General knowledge, the Network Manager (NM) keeps track of all player prefabs, so we can change it through that
 
     [SerializeField] public List<Transform> spawnTransforms = new List<Transform>();
-    [SerializeField] public GameObject mainCam;
-    [SerializeField] private int tempInd;
-
-    public NetworkClient currNetworkClient;
-    public PlayerMovement currPlayerMovement;
+    [SerializeField] private int tempTeamIndex;                                         //REMOVE in final version
+    [SerializeField] private NetworkObject spawnablePrefab;
 
     public void SelectTeam(int userTeamIndex)
     {
-        tempInd = userTeamIndex;
+        tempTeamIndex = userTeamIndex;
 
         if(!NetworkManager.Singleton.IsHost)
         {
@@ -39,7 +36,7 @@ public class UserGameManager : NetworkBehaviour
             return;
         }
 
-        currNetworkClient = networkClient;
+        //currNetworkClient = networkClient;
 
         //If object found, get the PlayerMovement component (or any component that houses the SetTeam method
         if (!networkClient.PlayerObject.TryGetComponent<PlayerMovement>(out PlayerMovement userPlayerMovement))
@@ -54,7 +51,7 @@ public class UserGameManager : NetworkBehaviour
 
     void OnGUI()
     {
-        GUI.Label(new Rect(100, 100, 100, 20), tempInd.ToString());
+        GUI.Label(new Rect(100, 100, 100, 20), tempTeamIndex.ToString());
     }
 
 }
