@@ -4,9 +4,59 @@ using Unity.Netcode;
 using UnityEngine;
 using System;
 
-public class UserGameManager : MonoBehaviour
+public class UserGameManager : NetworkBehaviour
 {
+    //General knowledge, the Network Manager (NM) keeps track of all player prefabs, so we can change it through that
+
     [SerializeField] public List<Transform> spawnTransforms = new List<Transform>();
+    [SerializeField] public GameObject mainCam;
+    [SerializeField] private int tempInd;
+
+    public NetworkClient currNetworkClient;
+    public PlayerMovement currPlayerMovement;
+
+    public void SelectTeam(int userTeamIndex)
+    {
+        tempInd = userTeamIndex;
+
+        if(!NetworkManager.Singleton.IsHost)
+        {
+            if(!NetworkManager.Singleton.LocalClient.PlayerObject.TryGetComponent<PlayerMovement>(out PlayerMovement clientPlayerMovement))
+            {
+                return;
+            }
+
+            clientPlayerMovement.SetTeamServerRpc((byte)userTeamIndex);
+        }
+
+        //Get local client's ID
+        ulong localID = NetworkManager.Singleton.LocalClientId;
+
+        //Tell NM to get object with ID
+        //Return if failed
+        if (!NetworkManager.Singleton.ConnectedClients.TryGetValue(localID, out NetworkClient networkClient))
+        {
+            return;
+        }
+
+        currNetworkClient = networkClient;
+
+        //If object found, get the PlayerMovement component (or any component that houses the SetTeam method
+        if (!networkClient.PlayerObject.TryGetComponent<PlayerMovement>(out PlayerMovement userPlayerMovement))
+        {
+            return;
+        }
+
+        //Everything is successful
+        //If PlayerMovement found, call the server rpc method; send a message to the server to set the local client's team
+        userPlayerMovement.SetTeamServerRpc((byte)userTeamIndex);
+    }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(100, 100, 100, 20), tempInd.ToString());
+    }
+
 }
 
 #region Old Notes (Manual Connection UI)

@@ -2552,7 +2552,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9e80843008872243977f0d67b97e3e3, type: 2}
+  - {fileID: 2100000, guid: 92eea08ebd84ff14e9b7e337f2bfa763, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2841,6 +2841,90 @@ Transform:
   m_Father: {fileID: 8437882196797846591}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8388190800396759927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 530282225089577390}
+  - component: {fileID: 8883816404632428902}
+  - component: {fileID: 5720317327947720830}
+  m_Layer: 0
+  m_Name: followCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &530282225089577390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8388190800396759927}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0.3, y: 1.803, z: -1.011}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8301978906116644698}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+--- !u!20 &8883816404632428902
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8388190800396759927}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &5720317327947720830
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8388190800396759927}
+  m_Enabled: 1
 --- !u!1 &8422961214200488429
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3096,7 @@ GameObject:
   - component: {fileID: 8301978906116644698}
   - component: {fileID: 2726543649191200032}
   - component: {fileID: 5604205536126567557}
+  - component: {fileID: 4960892000512372911}
   m_Layer: 0
   m_Name: PlayerChar
   m_TagString: Untagged
@@ -3039,6 +3124,7 @@ Transform:
   - {fileID: 4259397791939532765}
   - {fileID: 3048906843129881037}
   - {fileID: 3431402037323080066}
+  - {fileID: 530282225089577390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3078,6 +3164,26 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &4960892000512372911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8682198430198400480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f953ba819219c29429440260261ed5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnimControl: {fileID: 2726543649191200032}
+  playerTeamColorRenderer: {fileID: 6895306723608142102}
+  teamColors:
+  - {r: 0.9921569, g: 0.6862745, b: 0.11764707, a: 1}
+  - {r: 0, g: 0.38431376, b: 0.7254902, a: 1}
+  - {r: 0.10588236, g: 0.6039216, b: 0.03137255, a: 1}
+  - {r: 0.7372549, g: 0, b: 0.59607846, a: 1}
+  testParticles: {fileID: 4009163027967634494, guid: 8695033e20515fe4cb44625436735cfa, type: 3}
 --- !u!1 &9041502940632355750
 GameObject:
   m_ObjectHideFlags: 0

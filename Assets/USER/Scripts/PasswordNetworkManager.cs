@@ -12,6 +12,7 @@ public class PasswordNetworkManager : MonoBehaviour
 
     [SerializeField] private TMP_InputField passwordInputField;
     [SerializeField] private GameObject passwordEntryUI;
+    [SerializeField] private GameObject teamPickerUI;
     [SerializeField] private GameObject leaveButton;
 
     private void Start()
@@ -36,6 +37,8 @@ public class PasswordNetworkManager : MonoBehaviour
         
         //Cannot add extra parameters to StartHost as there are no overloads, however the default callback seems to work.
         NetworkManager.Singleton.StartHost();
+
+        //gameManagerScript.mainCam.SetActive(false);
     }
 
     public void Client()
@@ -58,7 +61,9 @@ public class PasswordNetworkManager : MonoBehaviour
         }
 
         passwordEntryUI.SetActive(true);
+        teamPickerUI.SetActive(false);
         leaveButton.SetActive(false);
+        //gameManagerScript.mainCam.SetActive(true);
     }
 
     //OnClienConnected does not get called for the host when they themselves connect, so we do it manually (might be fixed later)
@@ -76,6 +81,7 @@ public class PasswordNetworkManager : MonoBehaviour
         if(userClientID == NetworkManager.Singleton.LocalClientId)
         {
             passwordEntryUI.SetActive(false);
+            teamPickerUI.SetActive(true);
             leaveButton.SetActive(true);
         }
     }
@@ -85,7 +91,9 @@ public class PasswordNetworkManager : MonoBehaviour
         if (userClientID == NetworkManager.Singleton.LocalClientId)
         {
             passwordEntryUI.SetActive(true);
+            teamPickerUI.SetActive(false);
             leaveButton.SetActive(false);
+            //gameManagerScript.mainCam.SetActive(true);
         }
     }
 
@@ -95,7 +103,7 @@ public class PasswordNetworkManager : MonoBehaviour
         bool approveConn = hostPassword == passwordInputField.text;
 
         Vector3 currSpawnPos = Vector3.zero;
-        Quaternion currSpawnRot = Quaternion.identity;
+        Quaternion currSpawnRot = Quaternion.Euler(0f, 180f, 0f);       //So that the initial character faces the camera
 
         switch(NetworkManager.Singleton.ConnectedClients.Count)
         {
