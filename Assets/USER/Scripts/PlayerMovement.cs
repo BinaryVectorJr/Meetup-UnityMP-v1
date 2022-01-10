@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using Unity.Collections;
+using TMPro;
 
 public class PlayerMovement : NetworkBehaviour
 {
@@ -10,8 +12,15 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private SkinnedMeshRenderer playerTeamColorRenderer;       //Had to change this from Renderer to SkinnedMeshRenderer due to the asset being used; Renderer should work normally
     [SerializeField] private Color[] teamColors;
 
-    private NetworkVariable<byte> currentTeamIndex = new NetworkVariable<byte>();
+    private NetworkVariable<byte> currentTeamIndex = new NetworkVariable<byte>(byte.MinValue);
+
+    //NetworkVariable<string> does not work
+    //Answer found here: https://issueexplorer.com/issue/Unity-Technologies/com.unity.netcode.gameobjects/1193
+    private NetworkVariable<FixedString32Bytes> currentDisplayName = new NetworkVariable<FixedString32Bytes>();
+
     //private NetworkVariable<byte> currentTeamIndex = new NetworkVariable<byte>(NetworkVariableReadPermission.OwnerOnly);
+
+    [SerializeField] private TMP_Text displayNameText;
     #endregion
 
     #region Spawnable Object Related
@@ -27,6 +36,19 @@ public class PlayerMovement : NetworkBehaviour
     {
         //Get a reference to the main camera
         mainCam = Camera.main;
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        if(!IsServer) { return; }
+
+        PlayerData? currentPlayerData = PasswordNetworkManager.GetPlayerData(OwnerClientId);
+
+        if(currentPlayerData.HasValue)
+        {
+            currentDisplayName.Value = currentPlayerData.Value.playerName;
+        }
     }
 
     #region Spawning particles over network
@@ -101,7 +123,7 @@ public class PlayerMovement : NetworkBehaviour
 
     #endregion
 
-    #region Setting up the teams
+    #region Setting up the teams and handle names on players
     [ServerRpc]
     public void SetTeamServerRpc(byte userNewTeamIndex)
     {
@@ -116,12 +138,14 @@ public class PlayerMovement : NetworkBehaviour
     private void OnEnable()
     {
         currentTeamIndex.OnValueChanged += OnTeamChanged;
+        currentDisplayName.OnValueChanged += HandleDisplayNameChanged;
     }
 
     //Stop listening for currentTeamIndex value being updated
     private void OnDisable()
     {
         currentTeamIndex.OnValueChanged -= OnTeamChanged;
+        currentDisplayName.OnValueChanged -= HandleDisplayNameChanged;
     }
 
     private void OnTeamChanged(byte oldTeamIndex, byte newTeamIndex)
@@ -132,6 +156,11 @@ public class PlayerMovement : NetworkBehaviour
         //Update color
         //playerTeamColorRenderer.material.SetColor("_BaseColor", teamColors[newTeamIndex]); //Use this way to set color for materials in URP
         playerTeamColorRenderer.material.color = teamColors[newTeamIndex];
+    }
+
+    private void HandleDisplayNameChanged(FixedString32Bytes oldDisplayName, FixedString32Bytes newDisplayName)
+    {
+        displayNameText.text = newDisplayName.ToString();
     }
     #endregion
 
